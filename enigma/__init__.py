@@ -4,7 +4,7 @@ from enigma.rotor_processor import RotorProcessor
 
 
 class Enigma:
-    def __init__(self, *plugboard_pairs: tuple[str, str], rotors_starts_with: tuple | None = None,
+    def __init__(self, *plugboard_pairs: tuple[str, str], rotors_starts_with: tuple[str, ...] | None = None,
                  path_to_enigma_settings: str = "EnigmaProperties.JSON"):
         self.PROPERTIES = properties.EnigmaProperties(path_to_enigma_settings)
 
