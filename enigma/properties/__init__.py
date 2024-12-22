@@ -54,6 +54,10 @@ class EnigmaProperties:
         self.ALPHABET_SETTINGS = AlphabetSettings(self.__ENIGMA_JSON_FILE_PATH)
         self.REFLECTOR_SETTINGS = ReflectorSettings(self.__ENIGMA_JSON_FILE_PATH)
 
+    @property
+    def enigma_json_file_path(self) -> str:
+        return self.__ENIGMA_JSON_FILE_PATH
+
     def create_random_alphabet(self):
         available_for_new_alphabet = string.digits + string.ascii_uppercase
         new_alphabet_len = random.randint(2, len(available_for_new_alphabet))

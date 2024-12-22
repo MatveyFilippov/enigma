@@ -28,13 +28,10 @@ if __name__ == "__main__":
         ("Б", "В"), rotors_starts_with=("А", "А", "А"),
         path_to_enigma_settings=enigma_properties_filepath,
     )
-    enigma_receiver = Enigma(
-        ("Б", "В"), rotors_starts_with=("А", "А", "А"),
-        path_to_enigma_settings=enigma_properties_filepath,
-    )
+    enigma_receiver = enigma_sender.copy()
 
     encrypted_text = enigma_sender.process_text(source_text)
     print(f"Шифруем: '{source_text}' --> '{encrypted_text}'")
 
-    decrypted_text = enigma_sender.process_text(encrypted_text)
+    decrypted_text = enigma_receiver.process_text(encrypted_text)
     print(f"Дешифруем: '{encrypted_text}' --> '{decrypted_text}'")

@@ -21,6 +21,13 @@ class Enigma:
             for i in range(rotors_qty):
                 rotors_list[i].set_position(rotors_starts_with[i])
 
+    def copy(self):
+        return Enigma(
+            *self.PLUGBOARD.pairs, rotors_starts_with=tuple(
+                rotor.wiring[0] for rotor in self.ROTOR_PROCESSOR.rotors_list
+            ), path_to_enigma_settings=self.PROPERTIES.enigma_json_file_path,
+        )
+
     def process_text(self, text: str, ignore_unknown_char=False) -> str:
         result = ""
         for char in text:
